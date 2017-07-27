@@ -1,0 +1,31 @@
+<button (click)="sortByAsccending()">正序排列</button>
+<button (click)="sortByDesccending()">倒序排列</button>
+<button (click)="sortByRadom()">随机打乱</button>
+<button (click)="deleteLast()">删除最后一个</button>
+<button (click)="saveNewUser()">新增一个</button>
+<table>
+  <tbody>
+    <tr>
+      <th>ID </th>
+      <th>姓名 </th>
+      <th>性别 </th>
+      <th>Name </th>
+      <th>github </th>
+      <th>exam1 </th>
+      <th>exam2 </th>
+      <th>exam3 </th>
+    </tr>
+  </tbody>
+  <tbody>
+    <tr *ngFor="let user of users">
+      <td>{{user.index}}</td>
+      <td>{{user.name}}</td>
+      <td>{{user.sex}}</td>
+      <td>{{user.name_en}} </td>
+      <td><a target="_blank" href="http://github.com/{{user.github}}">{{user.github}}</a></td>
+      <td>{{user.exam1}}</td>
+      <td>{{user.exam2}}</td>
+      <td>{{user.exam3}}</td>
+    </tr>
+  </tbody>
+</table>
