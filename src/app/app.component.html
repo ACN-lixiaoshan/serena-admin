@@ -1,6 +1,6 @@
 <!--The content below is only a placeholder and can be replaced.-->
 <div class="header">
-<h1>Welcome to {{title}}!<a routerLink="login" id="login">登陆</a></h1>
+<h1>{{title}}<a routerLink="login" id="login">登陆</a></h1>
 </div>
 
 <div class="row">
@@ -8,26 +8,14 @@
 <ul>
 <li><a routerLink="home">Home</a></li>
 <li><a routerLink="about">About</a></li>
-<li>组织架构</li>
-<li>项目管理</li>
-<li>财务管理</li>
-<li>客户管理</li>
+<li><a routerLink="parking">我要停车</a></li>
+<li>我有车位</li>
+<li>个人中心</li>
 </ul>
 </div>
 <div class="col-9 col-m-9 main-container">
 <router-outlet></router-outlet>
 </div>
-
-<!--<div class="col-3 col-m-12">
-<div class="aside">
-<h2>Heading 1</h2>
-<p>This is an example for responsive layout, especially about Grid-Style.</p>
-<h2>Heading 2</h2>
-<p>This is an example for responsive layout, especially about Grid-Style.</p>
-<h2>Heading 3</h2>
-<p>This is an example for responsive layout, especially about Grid-Style.</p>
-</div>
-</div>-->
 </div>
 <div class="footer">
 <p>如需帮助请按零</p>
