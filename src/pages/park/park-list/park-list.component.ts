@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { Meta, Title } from '@angular/platform-browser';
 
 import {ParkService} from '../park.service';
+import { Http } from '@angular/http';
+import {Parse} from "../../../cloud/parse";
 
 @Component({
   selector: 'app-park-list',
@@ -10,15 +12,15 @@ import {ParkService} from '../park.service';
 })
 
 export class ParkListComponent implements OnInit {
-  park:Array<any> = [];
+  parks:Array<any> = [];
 
   deleteLast(){
-    this.park.pop()
+    this.parks.pop()
   }
 
   sortByAsccending(){
     // 参考MDN Array操作的API文档 Array相关方法方法
-    this.park.sort(function (a, b) {
+    this.parks.sort(function (a, b) {
       if (a.index > b.index) {
         return 1;
       }
@@ -31,7 +33,7 @@ export class ParkListComponent implements OnInit {
   sortByDesccending(){
     // 参考MDN Array操作的API文档 Array相关方法
     // https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Array
-    this.park.sort(function (a, b) {
+    this.parks.sort(function (a, b) {
       if (a.index > b.index) {
         return -1;
       }
@@ -44,7 +46,7 @@ export class ParkListComponent implements OnInit {
   sortByRadom(){
     // 参考MDN Array操作的API文档 Math相关方法
     // https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Math
-    this.park.sort(function (a, b) {
+    this.parks.sort(function (a, b) {
       if (5 > Math.random() * 10) {
         return -1;
       }
@@ -55,18 +57,23 @@ export class ParkListComponent implements OnInit {
     });
   }
 
- delete(park){
-    let parkIndex = park.index;
-    this.parkServ.park.forEach((item,index,array)=>{
-      if(item.index == parkIndex){
-        array.splice(index,1)
-      }
-    })
-  }
-  constructor(meta: Meta, title: Title, private parkServ:ParkService) {
-    this.park = this.parkServ.getPark()
+//  delete(park){
+//     let parkIndex = park.index;
+//     this.parkServ.park.forEach((item,index,array)=>{
+//       if(item.index == parkIndex){
+//         array.splice(index,1)
+//       }
+//     })
+//   }
 
-    title.setTitle('park List Page');
+  constructor(meta: Meta, title: Title, private http:Http, private parkServ:ParkService) {
+    
+    let query = new Parse.Query("Park",http)
+    query.find().subscribe(data=>{
+      console.log(data)
+      this.parks = data
+    })
+    title.setTitle('Park List Page');
 
     meta.addTags([
       {

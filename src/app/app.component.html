@@ -1,23 +1,16 @@
 <!--The content below is only a placeholder and can be replaced.-->
-<div class="header">
-<h1>{{title}}<a routerLink="login" id="login">登陆</a></h1>
-</div>
-
-<div class="row">
-<div class="col-3 col-m-3 menu">
+<div class="menu">
 <ul>
-<li><a routerLink="home">Home</a></li>
-<li><a routerLink="about">About</a></li>
-<li><a routerLink="park">我要停车</a></li>
-<li>我有车位</li>
-<li>个人中心</li>
+<li class="col-3 col-m-3"><a routerLink="home">首页</a></li>
+<li class="col-3 col-m-3"><a routerLink="park">我要停车</a></li>
+<li class="col-3 col-m-3">我有车位</li>
+<li class="col-3 col-m-3">个人中心</li>
 </ul>
 </div>
-<div class="col-9 col-m-9 main-container">
+<div class="col-12 col-m-12 main-container">
 <router-outlet></router-outlet>
 </div>
-</div>
-<div class="footer">
-<p>如需帮助请按零</p>
+<div>
+<p>{{footer}}</p>
 </div>
 

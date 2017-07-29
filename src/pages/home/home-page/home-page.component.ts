@@ -129,5 +129,5 @@ saveNewUser(){
 
   ngOnInit() {
   }
-
+  now = new Date();
 }

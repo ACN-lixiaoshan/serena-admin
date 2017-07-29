@@ -19,6 +19,7 @@ import { LoginPageComponent } from '../pages/user/login-page/login-page.componen
 import { ParkListComponent } from '../pages/park/park-list/park-list.component';
 import { ParkEditComponent } from '../pages/park/park-edit/park-edit.component';
 import { ParkItemComponent } from '../pages/park/park-item/park-item.component';
+import { RxjsHomeComponent } from '../pages/rxjs/rxjs-home/rxjs-home.component';
 const SPAroutes: Routes = [
   {
     path: '',
@@ -28,6 +29,7 @@ const SPAroutes: Routes = [
   { path: 'about', component: AboutPageComponent },
   { path: 'login', component: LoginPageComponent },
   { path: 'park', component: ParkListComponent },
+  { path: 'rxjs', component: RxjsHomeComponent },
 ];
 
 // 配置路由模式

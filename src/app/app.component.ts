@@ -6,5 +6,7 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  title = '介里有车位';
+  index = '介里有车位';
+  footer = '如需帮助请按零';
+
 }

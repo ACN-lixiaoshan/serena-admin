@@ -26,40 +26,36 @@ export class ParkEditComponent implements OnInit,OnDestroy {
     this.location.back();
   }
   save(){
-    this.parkServ.park.push(this.park)
-    this.location.back();
+    this.park.index = Number(this.park.index)
+    this.park.time = Number(this.park.time)
+    this.park.price = Number(this.park.price)
+    this.park.telphone = Number(this.park.telphone)
+    this.parkServ.savePark(this.park).subscribe(data=>{
+      console.log(data)
+      this.location.back();
+    })
+    this.parkServ.savePark(this.park).subscribe(data=>{
+      console.log(data)
+      this.location.back();        
+    })
   }
   ngOnInit() {
-    this.getParkSubscribe = this.route.params.subscribe(params=>{
-      this.getPark(params['pid']).then(park=>{
-      console.log(park)
-      this.parkId = park.id;
-      this.park = park
-    }).catch(err=>{
-      console.log(err)
-    })
+        this.route.params.subscribe(params=>{
+          let id = params['id']
+          if(id=="new"){
+            let park = {name:""}
+            this.isNew = true;
+            this.park = park
+          }else{
+            this.parkServ.getParkById(id).subscribe(park=>{
+            console.log(park)
+            this.park = park
+        })
+      }
+
     })
   }
   ngOnDestroy(){
-    this.getParkSubscribe.unsubscribe();
   }
-
-  getPark(id: any): Promise<any> {
-    
-    let p = new Promise((resolve,reject)=>{
-      if(id=="new"){
-        let park = {name:""}
-        this.isNew = true;
-        resolve(park)
-      }
-      let park = this.parkServ.park.find(item=>item.id == id)
-      if(park){
-        resolve(park)
-      }else{
-        reject("park not found")
-      }
-    })
-    return p
-}
 
 }
