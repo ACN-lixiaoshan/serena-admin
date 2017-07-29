@@ -2,7 +2,7 @@
 <button (click)="sortByDesccending()">倒序</button>
 <button (click)="sortByRadom()">随机</button>
 <button (click)="deleteLast()">删除</button>
-<button routerLink="/parking/edit/new">新增</button>
+<button routerLink="/park/edit/new">新增</button>
 <table>
   <tbody>
     <tr>
@@ -21,15 +21,15 @@
     </tr>
   </tbody>
   <tbody>
-    <tr *ngFor="let park of parking">
+    <tr *ngFor="let park of park">
       <td>{{park.index}}</td>
-      <td>{{park.parking}}</td>
+      <td>{{park.park}}</td>
       <td>{{park.distant}}</td>
       <td>{{park.time}} </td>
       <td>{{park.price}}</td>
       <td>{{park.telphone}}</td>
       <td>
-      <button routerLink="/parking/edit/{{park.index}}">编辑</button>
+      <button routerLink="/park/edit/{{park.index}}">编辑</button>
       <button (click)="delete(park)">删除</button>
       </td>
     </tr>

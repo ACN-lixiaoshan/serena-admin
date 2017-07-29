@@ -7,7 +7,7 @@ import { CommonModule } from '@angular/common';
 import { HomeModule } from './home/home.module';
 import { UserModule } from './user/user.module';
 import { AboutModule } from './about/about.module';
-import { ParkingModule } from './parking/parking.module';
+import { ParkModule } from './park/park.module';
 
 @NgModule({
   imports: [
@@ -15,7 +15,7 @@ import { ParkingModule } from './parking/parking.module';
     HomeModule,
     UserModule,
     AboutModule,
-    ParkingModule
+    ParkModule
   ],
 })
 export class SPAModule { }

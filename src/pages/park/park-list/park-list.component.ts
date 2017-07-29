@@ -1,24 +1,24 @@
 import { Component, OnInit } from '@angular/core';
 import { Meta, Title } from '@angular/platform-browser';
 
-import {ParkingService} from '../parking.service';
+import {ParkService} from '../park.service';
 
 @Component({
-  selector: 'app-parking-list',
-  templateUrl: './parking-list.component.html',
-  styleUrls: ['./parking-list.component.scss']
+  selector: 'app-park-list',
+  templateUrl: './park-list.component.html',
+  styleUrls: ['./park-list.component.scss']
 })
 
-export class ParkingListComponent implements OnInit {
-  parking:Array<any> = [];
+export class ParkListComponent implements OnInit {
+  park:Array<any> = [];
 
   deleteLast(){
-    this.parking.pop()
+    this.park.pop()
   }
 
   sortByAsccending(){
     // 参考MDN Array操作的API文档 Array相关方法方法
-    this.parking.sort(function (a, b) {
+    this.park.sort(function (a, b) {
       if (a.index > b.index) {
         return 1;
       }
@@ -31,7 +31,7 @@ export class ParkingListComponent implements OnInit {
   sortByDesccending(){
     // 参考MDN Array操作的API文档 Array相关方法
     // https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Array
-    this.parking.sort(function (a, b) {
+    this.park.sort(function (a, b) {
       if (a.index > b.index) {
         return -1;
       }
@@ -44,7 +44,7 @@ export class ParkingListComponent implements OnInit {
   sortByRadom(){
     // 参考MDN Array操作的API文档 Math相关方法
     // https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Math
-    this.parking.sort(function (a, b) {
+    this.park.sort(function (a, b) {
       if (5 > Math.random() * 10) {
         return -1;
       }
@@ -57,16 +57,16 @@ export class ParkingListComponent implements OnInit {
 
  delete(park){
     let parkIndex = park.index;
-    this.parkServ.parking.forEach((item,index,array)=>{
+    this.parkServ.park.forEach((item,index,array)=>{
       if(item.index == parkIndex){
         array.splice(index,1)
       }
     })
   }
-  constructor(meta: Meta, title: Title, private parkServ:ParkingService) {
-    this.parking = this.parkServ.getParking()
+  constructor(meta: Meta, title: Title, private parkServ:ParkService) {
+    this.park = this.parkServ.getPark()
 
-    title.setTitle('Parking List Page');
+    title.setTitle('park List Page');
 
     meta.addTags([
       {

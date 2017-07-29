@@ -16,9 +16,9 @@ const SSRroutes: Routes = [
 import { HomePageComponent } from '../pages/home/home-page/home-page.component';
 import { AboutPageComponent } from '../pages/about/about-page/about-page.component';
 import { LoginPageComponent } from '../pages/user/login-page/login-page.component';
-import { ParkingListComponent } from '../pages/parking/parking-list/parking-list.component';
-import { ParkingEditComponent } from '../pages/parking/parking-edit/parking-edit.component';
-import { ParkingItemComponent } from '../pages/parking/parking-item/parking-item.component';
+import { ParkListComponent } from '../pages/park/park-list/park-list.component';
+import { ParkEditComponent } from '../pages/park/park-edit/park-edit.component';
+import { ParkItemComponent } from '../pages/park/park-item/park-item.component';
 const SPAroutes: Routes = [
   {
     path: '',
@@ -27,7 +27,7 @@ const SPAroutes: Routes = [
   { path: 'home', component: HomePageComponent },
   { path: 'about', component: AboutPageComponent },
   { path: 'login', component: LoginPageComponent },
-  { path: 'parking', component: ParkingListComponent },
+  { path: 'park', component: ParkListComponent },
 ];
 
 // 配置路由模式

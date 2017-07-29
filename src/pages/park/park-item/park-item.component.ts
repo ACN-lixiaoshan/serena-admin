@@ -3,11 +3,11 @@ import { Input } from '@angular/core';
 import { Output,EventEmitter } from '@angular/core';
 
 @Component({
-  selector: 'app-parking-item',
-  templateUrl: './parking-item.component.html',
-  styleUrls: ['./parking-item.component.scss']
+  selector: 'app-park-item',
+  templateUrl: './park-item.component.html',
+  styleUrls: ['./park-item.component.scss']
 })
-export class ParkingItemComponent implements OnInit {
+export class ParkItemComponent implements OnInit {
 @Input() user:any
   @Output() userClick = new EventEmitter<any>();
   constructor() { 
