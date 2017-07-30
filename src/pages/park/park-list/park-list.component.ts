@@ -14,9 +14,9 @@ import {Parse} from "../../../cloud/parse";
 export class ParkListComponent implements OnInit {
   parks:Array<any> = [];
 
-  deleteLast(){
-    this.parks.pop()
-  }
+  // deleteLast(){
+  //   this.parks.pop()
+  // }
 
   sortByAsccending(){
     // 参考MDN Array操作的API文档 Array相关方法方法

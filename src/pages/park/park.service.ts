@@ -24,7 +24,8 @@ export class ParkService{
     delete(obj){
         this.deleteParkById(obj.objectId).subscribe(data=>{
             console.log(data);
-            this.location.go("/park")
+            this.location.go("/park");
+            // this.location.back();  
         })
     }
     // search(type,value){

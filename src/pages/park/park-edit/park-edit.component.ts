@@ -32,12 +32,8 @@ export class ParkEditComponent implements OnInit,OnDestroy {
     this.park.telphone = Number(this.park.telphone)
     this.parkServ.savePark(this.park).subscribe(data=>{
       console.log(data)
-      this.location.back();
     })
-    this.parkServ.savePark(this.park).subscribe(data=>{
-      console.log(data)
-      this.location.back();        
-    })
+    this.location.back();  
   }
   ngOnInit() {
         this.route.params.subscribe(params=>{
